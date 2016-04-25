@@ -4,6 +4,112 @@ import Details from './details';
 // import ons from '../node_modules/onsenui/js/onsenui.js';
 // window.ons=ons;
 
+class Test extends React.Component{
+	alert(){
+		alert('ik');
+	}
+	render(){
+		return <Page>
+			<Toolbar title="自选股">
+				<div left>
+    			<span className="toolbar-button--quiet navigation-bar__line-height">
+      			<i className="ion-navicon"></i>
+    			</span>
+  			</div>
+				<div center>
+					<div className="button-bar" style={{width:'280px'}}>
+  <div className="button-bar__item">
+    <input type="radio" name="segment-a" />
+    <button className="button-bar__button">One</button>
+  </div>
+
+  <div className="button-bar__item">
+    <input type="radio" name="segment-a" />
+    <button className="button-bar__button">Two</button>
+  </div>
+
+</div>
+				</div> 
+  			<div right></div> 
+			</Toolbar>
+			<div className="tab-bar tab-bar--top tab-bar--top-border">
+  			<label className="tab-bar__item tab-bar--top-border__item">
+    			<input type="radio" name="top-tab-bar-b" />
+    				<button className="tab-bar__button tab-bar--top-border__button">
+      Home
+    </button>
+  </label>
+			<label className="tab-bar__item tab-bar--top-border__item">
+    			<input type="radio" name="top-tab-bar-b" />
+    				<button className="tab-bar__button tab-bar--top-border__button">
+      Home2
+    </button>
+  </label>
+</div>
+			<List>
+				<ListItem><div onClick={this.alert.bind(this)} className="list__item__center">Item1</div></ListItem>
+				<ListItem><div className="list__item__center">Item2</div></ListItem>
+			</List>
+		</Page>
+	}
+}
+class ListItem extends React.Component{
+	render(){
+		return (
+			<li className="list__item">
+			{
+				React.Children.map(this.props.children,(child)=>child)	
+			}
+			</li>
+		)
+	}
+}
+class List extends React.Component{
+	render(){
+		return (
+			<ul className="list">
+			{
+				React.Children.map(this.props.children,(child)=>child)
+			}
+			</ul>
+		)
+	}
+}
+
+class Page extends React.Component{
+	render(){
+		return (
+			<div className="page">
+			{
+				React.Children.map(this.props.children,(child)=>child)
+			}
+			</div>)
+	}
+}
+class Toolbar extends React.Component{
+	render(){
+		return (
+			<div className="navigation-bar navigation-bar--android">
+  		{
+				React.Children.map(this.props.children,(child)=>{
+					let className=child.props.className||'';
+					if(child.props.left){
+						className+='navigation-bar__left';
+					}
+					if(child.props.center){
+						className+='navigation-bar__center';
+					}
+					if(child.props.right){
+						className+='navigation-bar__right';
+					}
+					return React.cloneElement(child,{className});
+				})
+			}
+			</div>
+		)
+	}
+}
+
 class StockList extends React.Component {
   gotoDetails() {
 		document.getElementById('navigator').pushPage('details');
@@ -83,6 +189,6 @@ class Home extends React.Component{
 }
 
 ReactDOM.render(
-  <Home />,
+  <Test />,
   document.getElementById('wrapper')
 );
