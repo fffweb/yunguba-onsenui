@@ -5,13 +5,14 @@ export default class StockList extends React.Component {
   
   render() {
     return (
-			
-	    <Page renderToolbar={()=>
+		  <Page renderToolbar={()=>
 				<Toolbar>
       		<div className='center'>Title</div>
     		</Toolbar>
-  		}>
-      content  
+  			}>
+      	<List renderRow={menu=> <ListItem onClick={this.clickMenu.bind(this)} key={menu} tappable>{menu}</ListItem>}
+          dataSource={['自选股','涨幅榜','跌幅榜','关于']}
+				/>
       </Page>
 			
     );

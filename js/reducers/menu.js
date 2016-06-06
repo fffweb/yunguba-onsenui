@@ -1,8 +1,8 @@
 import * as actionTypes from '../comm/actionTypes';
 
-export default function storage(state,action){
+export default function menu(state,action){
 	switch(action.type){
-		case actionTypes.SET_STORAGE:
+		case actionTypes.SET_MENU:
 			return action.data;
 		default:
 			return state;

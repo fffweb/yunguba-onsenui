@@ -5,6 +5,8 @@ import StockList from './StockList';
 import About from './About';
 import { connect } from 'react-redux'
 
+
+
 class Home extends React.Component{
 	constructor(props){
 		super(props);
@@ -21,6 +23,7 @@ class Home extends React.Component{
 	renderPage(route,navigator){
 		debugger;
 		return (
+      <StockList title={route.title} />
       <Page>
         <Toolbar>
           <div className='center'>{route.title}</div>
