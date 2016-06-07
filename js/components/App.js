@@ -23,7 +23,8 @@ class Home extends React.Component{
 	renderPage(route,navigator){
 		debugger;
 		return (
-      <StockList title={route.title} />
+      
+      {/*
       <Page>
         <Toolbar>
           <div className='center'>{route.title}</div>
@@ -42,6 +43,8 @@ class Home extends React.Component{
         </Button>
         {route.backButton}
       </Page>
+      */}
+      <StockList title={route.title} />
     );
 	}
 	clickMenu(){

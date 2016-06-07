@@ -5,7 +5,7 @@ import configureStore from './store'
 //import { hashHistory, Router, Route, IndexRoute, Link } from 'react-router';
 import ons from 'onsenui';
 import App from './components/App';
-import {loadStorage} from '../actions/storage';
+import {loadStorage} from './actions/storage';
 
 let store=configureStore();
 store.dispatch(load());
