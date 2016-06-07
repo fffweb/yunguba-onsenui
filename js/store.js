@@ -2,14 +2,14 @@ import {createStore,applyMiddleware,combineReducers} from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import promiseMiddleware from 'redux-promise-middleware';
 import storage from './reducers/storage';
-import favors from './reducers/favors';
+import menu from './reducers/menu';
 import stocks from './reducers/stocks';
 
 const createStoreWithMiddleware = applyMiddleware(thunkMiddleware,promiseMiddleware())(createStore);
 
 const rootReducer = combineReducers({
   storage,
-	//favors,
+	menu,
 	stocks
 });
 

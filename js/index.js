@@ -8,7 +8,8 @@ import App from './components/App';
 import {loadStorage} from './actions/storage';
 
 let store=configureStore();
-store.dispatch(load());
+store.dispatch(loadStorage());
+
 
 ReactDOM.render(
 	<Provider store={store}>

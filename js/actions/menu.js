@@ -1,5 +1,5 @@
 import * as actionTypes from '../comm/actionTypes';
-const menu=[
-  {name:'favors',title:'自选'},
-  {name:'favors',title:'自选'},
-  ];
+
+export function buildMenu(menu){
+  return {type:actionTypes.BUILD_MENU,selectedMenu:menu}
+}

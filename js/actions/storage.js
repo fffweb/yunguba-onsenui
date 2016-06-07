@@ -4,10 +4,9 @@ const STORAGE_KEY = 'localStorage';
 export function loadStorage(){
 		let ls=localStorage.getItem(STORAGE_KEY);
 		if(ls){
-			dispatch({type:actionTypes.SET_STORAGE,data:JSON.parse(ls)});
+			return {type:actionTypes.SET_STORAGE,data:JSON.parse(ls)};
 		}else{
-			dispatch({type:actionTypes.SET_STORAGE,data:{favors:['sh000001','sz399001']}});
-			//dispatch(save());
+			return {type:actionTypes.SET_STORAGE,data:{favors:['sh000001','sz399001']}};
 		}
 }
 
